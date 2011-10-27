@@ -1,11 +1,3 @@
-PATH
-  remote: .
-  specs:
-    hubot_factory (0.0.1)
-      mustache
-      sinatra
-      thin
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -15,8 +7,6 @@ GEM
     rack (1.3.5)
     rack-protection (1.1.4)
       rack
-    shotgun (0.9)
-      rack (>= 1.0)
     sinatra (1.3.1)
       rack (~> 1.3, >= 1.3.4)
       rack-protection (~> 1.1, >= 1.1.2)
@@ -31,5 +21,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  hubot_factory!
-  shotgun
+  mustache
+  sinatra
+  thin
