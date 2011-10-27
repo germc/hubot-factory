@@ -21,4 +21,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "mustache"
   s.add_runtime_dependency "sinatra"
   s.add_runtime_dependency "thin"
+
+  s.add_development_dependency "shotgun"
 end
