@@ -5,3 +5,7 @@ email_user: "user@gmail.com"
 email_pass: "userpassword"
 
 hubot_bin: "/path/to/hubot/binary"
+
+redis_host: "redis.server.com"
+redis_port: 9508
+redis_pass: "password"

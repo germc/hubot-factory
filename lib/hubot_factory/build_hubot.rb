@@ -29,7 +29,7 @@ You will still need to configure some Heroku config variables to
 get it running. We hope to automate this part in the future for
 you.
 
-Note: You should remove #{Settings.secrets["email_user"} from the
+Note: You should remove #{Settings.secrets["email_user"]} from the
 Heroku application now that it has been transferred to your account.
 
  -- Hubot Factory Worker
