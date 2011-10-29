@@ -8,4 +8,5 @@ Heroku or your own server.
 
 * Change `system()` calls to Heroku gem calls
 * Allow users to pick and mix Hubot scripts which writes `hubot-scripts.json`
+* Provide text fields for configuring adapter related environment variables
 * Design the site

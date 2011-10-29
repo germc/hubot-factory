@@ -1,47 +1,20 @@
 module HubotFactory
   module Views
     class Index < Layout
-      # note: could probably change this into an array of hashes
-      #   - script name
-      #   - script desc
-      def hubot_scripts
+      def hubot_adapters
         [
-          "adult",
-          "auto-stache",
-          "bing",
-          "dnsimple",
-          "eight-ball",
-          "fogbugz",
-          "gemwhois",
-          "giftv",
-          "github-issues",
-          "googlee",
-          "haters",
-          "hideyakids",
-          "keep-alive",
-          "lastfm_np",
-          "likeaboss",
-          "lolz",
-          "meme_generator",
-          "pivotal",
-          "polite",
-          "redis-brain",
-          "remind",
-          "rubygems",
-          "sendgrid",
-          "shipit",
-          "speak",
-          "spotify",
-          "stocks",
-          "sudo",
-          "teamcity",
-          "train",
-          "travis",
-          "tweet",
-          "vanity",
-          "weather",
-          "wolfram"
+          { :name => "Campfire" },
+          { :name => "Email" },
+          { :name => "GroupMe" },
+          { :name => "HipChat" },
+          { :name => "IRC" },
+          { :name => "Twilio" },
+          { :name => "XMPP" },
         ]
+      end
+
+      def hubot_scripts
+        false
       end
     end
   end

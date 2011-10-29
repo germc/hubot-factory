@@ -19,9 +19,8 @@
     <h2>Heroku Details</h2>
 
     <p>
-      We will create the Heroku application, push your Hubot robot to Heroku.
-      Then we will transfer the application to your account that belongs to the
-      email below.
+      Your Hubot will need to be transferred to your Heroku account. So please
+      use the email associated with your Heroku account.
     </p>
 
     <p>
@@ -32,59 +31,38 @@
     <h2>About Your Hubot</h2>
 
     <p>
-      You will need to pick a name for your new Hubot. Your Hubot will respond
-      to this name. You will be able to change this even after your Hubot is
-      deployed, so don't worry if you change your mind!.
+      Your Hubot will need it's own name. This is what it will be programmed
+      to listen and respond to.
     </p>
 
     <p>
-      <label for="name">Robot Name:</label>
+      <label for="name">Hubot Name:</label>
       <input type="text" name="name" placeholder="Hubot" />
     </p>
 
     <p>
-      You will need to pick an adapter that your new Hubot will use. This is
-      where your Hubot will listen and respond to. Again you will be able to
-      change this if you change your mind.
+      Your Hubot will need to live somewhere. Pick an adapter for your Hubot
+      to use.
     </p>
 
     <p>
-      <label for="adapter">
-        Robot Adapter:
-        <br />
-        <input checked type="radio" name="adapter" value="campfire" /> Campfire<br />
-        <input type="radio" name="adapter" value="email" /> Email<br />
-        <input type="radio" name="adapter" value="groupme" /> GroupMe<br />
-        <input type="radio" name="adapter" value="hipchat" /> HipChat<br />
-        <input type="radio" name="adapter" value="irc" /> IRC<br />
-        <input type="radio" name="adapter" value="twilio" /> Twilio<br />
-        <input type="radio" name="adapter" value="xmpp" /> XMPP<br />
+      <strong>Hubot Adapter:</strong>
+    </p>
+
+    {{#hubot_adapters}}
+    <p>
+      <label>
+        <input name="adapter" type="radio" value="{{name.downcase}}">
+        {{name}}
       </label>
     </p>
+    {{/hubot_adapters}}
 
     <h2>Pick Your Hubot Scripts</h2>
 
     <p>
       <strong>Coming soon!</strong>
     </p>
-
-
-    <!--
-    <p>
-      You will need to pick and mix some scripts that your Hubot will use to
-      decide what to listen and respond with. You will be able to change these
-      in the <strong>hubot-scripts.json</strong> at any point.
-    </p>
-
-    {{#hubot_scripts}}
-    <p>
-      <label>
-        <input checked name="scripts[]" type="checkbox" value="{{to_s}}">
-        {{to_s}}.coffee
-      </label>
-    </p>
-    {{/hubot_scripts}}
-    -->
 
     <h2>Deploy Your Hubot!</h2>
 
@@ -100,28 +78,23 @@
   </form>
 
   <script>
-
     $(function() {
-
       $("#build-hubot").validate({
-
         rules: {
           name: "required",
           email: {
             required: true,
             email: true
-          }
+          },
         },
         messages: {
           name: "Oops! Your Hubot needs a name",
           email: {
-            required: "Oop! We need your email to transfer the Heroku app to you"
-          }
+            required: "Oops! We need your email to transfer the Heroku app to you"
+          },
         }
-
       });
-
     });
-
   </script>
+
 </div>
