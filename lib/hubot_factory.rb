@@ -9,10 +9,8 @@ require "hubot_factory/app"
 require "hubot_factory/build_hubot"
 require "hubot_factory/version"
 
-module HubotFactory
-  Resque.redis = Redis.new(:host     => Settings.secrets["redis_host"],
-                           :port     => Settings.secrets["redis_port"],
-                           :password => Settings.secrets["redis_pass"])
-end
+Resque.redis = Redis.new(:host     => HubotFactory::Settings.secrets["redis_host"],
+                         :port     => HubotFactory::Settings.secrets["redis_port"],
+                         :password => HubotFactory::Settings.secrets["redis_pass"])
 
 require "views/layout"
