@@ -17,7 +17,20 @@
     dolor sed mauris placerat tristique faucibus id enim.
   </p>
 
-  <form action="/build" method="post">
+  <form action="/build" id="build-hubot" method="post">
+
+    <h2>Heroku Details</h2>
+
+    <p>
+      We will create the Heroku application, push your Hubot robot to Heroku.
+      Then we will transfer the application to your account that belongs to the
+      email below.
+    </p>
+
+    <p>
+      <label for="email">Your Email:</label>
+      <input type="text" name="email" placeholder="hubot@example.com" />
+    </p>
 
     <h2>About Your Hubot</h2>
 
@@ -69,19 +82,6 @@
     </p>
     {{/hubot_scripts}}
 
-    <h2>Heroku Details</h2>
-
-    <p>
-      We will create the Heroku application, push your Hubot robot to Heroku.
-      Then we will transfer the application to your account that belongs to the
-      email below.
-    </p>
-
-    <p>
-      <label for="email">Your Email:</label>
-      <input type="text" name="email" placeholder="hubot@example.com" />
-    </p>
-
     <h2>Deploy Your Hubot!</h2>
 
     <p>
@@ -95,4 +95,29 @@
     </p>
   </form>
 
+  <script>
+
+    $(function() {
+
+      $("#build-hubot").validate({
+
+        rules: {
+          name: "required",
+          email: {
+            required: true,
+            email: true
+          }
+        },
+        messages: {
+          name: "Oops! Your Hubot needs a name",
+          email: {
+            required: "Oop! We need your email to transfer the Heroku app to you"
+          }
+        }
+
+      });
+
+    });
+
+  </script>
 </div>

@@ -1,8 +1,3 @@
-require "sinatra/base"
-require "mustache/sinatra"
-
-require "views/layout"
-
 module HubotFactory
   class App < Sinatra::Base
     register Mustache::Sinatra
@@ -23,7 +18,14 @@ module HubotFactory
     end
 
     post "/build" do
-      params.inspect
+      @email   = params[:email]
+      @name    = params[:name]
+      @adapter = params[:adapter]
+      @scripts = params[:scripts]
+
+      # Resque.enqueue(BuildHubot, @email, @name, @adapter, @scripts)
+
+      mustache :build
     end
 
   end
