@@ -1,4 +1,6 @@
 ---
+heroku_user: "heroku.provision.email"
+
 email_host: "smtp.gmail.com"
 email_port: "587"
 email_user: "user@gmail.com"

@@ -1,12 +1,17 @@
+require "fileutils"
 require "tmpdir"
 
 module HubotFactory
   class BuildHubot
     @queue = :build_hubot
 
-    def self.perform(email, name, adapter, scripts)
+    def self.perform(email, name, adapter, adapter_vars)
 
       adapter = "shell" unless valid_adapters.include? adapter
+
+      config = adapter_vars.map do |item|
+        "#{item["var"]}=\"#{item["val"]}\""
+      end
 
       dir = Dir.mktmpdir "#{name}-"
 
@@ -15,10 +20,14 @@ module HubotFactory
       system "sed", "-i", "s/-a campfire/-a #{adapter}/", "#{dir}/Procfile"
       system "cd #{dir} && git init && git add . && git commit -m 'Initial commit'"
       system "cd #{dir} && heroku create -s cedar"
+      system "cd #{dir} && heroku config:add #{config.join(" ")}"
       system "cd #{dir} && git push heroku master"
       system "cd #{dir} && heroku ps:scale app=1"
       system "cd #{dir} && heroku sharing:add #{email}"
       system "cd #{dir} && heroku sharing:transfer #{email}"
+      system "cd #{dir} && heroku sharing:remove #{Settings.secrets["heroku_user"]}"
+
+      FileUtils.rm_fr dir
 
       body =
 """
@@ -28,9 +37,6 @@ Your Hubot, #{name} has been built and deployed to Heroku for you.
 You will still need to configure some Heroku config variables to
 get it running. We hope to automate this part in the future for
 you.
-
-Note: You should remove #{Settings.secrets["email_user"]} from the
-Heroku application now that it has been transferred to your account.
 
  -- Hubot Factory Worker
 """

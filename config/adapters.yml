@@ -1,0 +1,120 @@
+---
+-
+  name: "Campfire"
+  desc: "Campfire adapter"
+  vars:
+    -
+      name: "HUBOT_CAMPFIRE_TOKEN"
+      desc: "Campfire API token"
+    -
+      name: "HUBOT_CAMPFIRE_ROOMS"
+      desc: "Campfire room IDs, separated by a comma"
+    -
+      name: "HUBOT_CAMPFIRE_ACCOUNT"
+      desc: "Campfire account subdomain"
+
+-
+  name: "Email"
+  desc: "Email adapter"
+  vars:
+    -
+      name: "HUBOT_EMAIL_USERNAME"
+      desc: ""
+    -
+      name: "HUBOT_EMAIL_PASSWORD"
+      desc: ""
+    -
+      name: "HUBOT_IMAP_HOST"
+      desc: ""
+    -
+      name: "HUBOT_IMAP_PORT"
+      desc: ""
+    -
+      name: "HUBOT_IMAP_SECURE"
+      desc: ""
+    -
+      name: "HUBOT_MAILBOX"
+      desc: ""
+
+-
+  name: "GroupMe"
+  desc: "GroupMe adapter"
+  vars:
+    -
+      name: "HUBOT_GROUPME_ROOM"
+      desc: ""
+    -
+      name: "HUBOT_GROUPME_TOKEN"
+      desc: ""
+
+-
+  name: "HipChat"
+  desc: "HipChat adapter"
+  vars:
+    -
+      name: "HUBOT_HIPCHAT_TOKEN"
+      desc: ""
+    -
+      name: "HUBOT_HIPCHAT_JID"
+      desc: ""
+    -
+      name: "HUBOT_HIPCHAT_NAME"
+      desc: ""
+    -
+      name: "HUBOT_HIPCHAT_PASSWORD"
+      desc: ""
+    -
+      name: "HUBOT_HIPCHAT_ROOMS"
+      desc: ""
+
+-
+  name: "IRC"
+  desc: "IRC adapter"
+  vars:
+    -
+      name: "HUBOT_IRC_NICK"
+      desc: ""
+    -
+      name: "HUBOT_IRC_PORT"
+      desc: ""
+    -
+      name: "HUBOT_IRC_ROOMS"
+      desc: ""
+    -
+      name: "HUBOT_IRC_SERVER"
+      desc: ""
+    -
+      name: "HUBOT_IRC_PASSWORD"
+      desc: ""
+    -
+      name: "HUBOT_IRC_NICKSERV_PASSWORD"
+      desc: ""
+
+-
+  name: "Twilio"
+  desc: "Twilio adapter"
+  vars:
+    -
+      name: "HUBOT_SMS_SID"
+      desc: ""
+    - 
+      name: "HUBOT_SMS_TOKEN"
+      desc: ""
+    -
+      name: "HUBOT_SMS_FROM"
+      desc: ""
+
+-
+  name: "XMPP"
+  desc: "XMPP adapters"
+  vars:
+    -
+      name: "HUBOT_XMPP_USERNAME"
+      desc: ""
+    -
+      name: "HUBOT_XMPP_PASSWORD"
+      desc: ""
+    -
+      name: "HUBOT_XMPP_ROOMS"
+      desc: ""
+

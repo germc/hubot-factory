@@ -25,7 +25,7 @@
 
     <p>
       <label for="email">Your Email:</label>
-      <input type="text" name="email" placeholder="hubot@example.com" />
+      <input type="text"  placeholder="hubot@example.com" name="email" />
     </p>
 
     <h2>About Your Hubot</h2>
@@ -37,7 +37,7 @@
 
     <p>
       <label for="name">Hubot Name:</label>
-      <input type="text" name="name" placeholder="Hubot" />
+      <input type="text" placeholder="Hubot" name="name" />
     </p>
 
     <p>
@@ -50,19 +50,30 @@
     </p>
 
     {{#hubot_adapters}}
-    <p>
-      <label>
-        <input name="adapter" type="radio" value="{{name.downcase}}">
-        {{name}}
-      </label>
-    </p>
+
+    <div class="adapter">
+
+      <p>
+        <label>
+          <input name="adapter" type="radio" value="{{name.downcase}}" />
+          {{name}}
+        </label>
+      </p>
+
+      <div class="adapter-vars" id="adapter-{{name.downcase}}">
+
+        {{#vars}}
+        <p>
+          <label>{{desc}} <span>{{name}}</span></label>
+          <input name="adapter-{{name}}" type="text" />
+        </p>
+        {{/vars}}
+
+      </div>
+
+    </div>
+
     {{/hubot_adapters}}
-
-    <h2>Pick Your Hubot Scripts</h2>
-
-    <p>
-      <strong>Coming soon!</strong>
-    </p>
 
     <h2>Deploy Your Hubot!</h2>
 
@@ -93,6 +104,16 @@
             required: "Oops! We need your email to transfer the Heroku app to you"
           },
         }
+      });
+
+      $("input[name='adapter']").change(function() {
+        name = $(this).val()
+        $(".adapter-vars").slideUp(function() {
+          $(this).hide();
+        });
+        $("#adapter-" + name).slideDown(function() {
+          $(this).show();
+        });
       });
     });
   </script>

@@ -18,13 +18,19 @@ module HubotFactory
     end
 
     post "/build" do
-      @email   = params[:email]
-      @name    = params[:name]
-      @adapter = params[:adapter]
-      @scripts = params[:scripts]
+      @email        = params[:email]
+      @name         = params[:name]
+      @adapter      = params[:adapter]
 
-      Resque.enqueue(BuildHubot, @email, @name, @adapter, @scripts)
+      @adapter_vars = params.keys.grep(/^adapter-/i).map do |k|
+        { :var => k[8..-1], :val => params[k] }
+      end
 
+      @adapter_vars.select! do |item|
+        item[:val] != "" && item[:val]
+      end
+
+      Resque.enqueue(BuildHubot, @email, @name, @adapter, @adapter_vars)
       mustache :build
     end
 
