@@ -22,5 +22,9 @@ module HubotFactory
       mustache :index
     end
 
+    post "/build" do
+      params.inspect
+    end
+
   end
 end

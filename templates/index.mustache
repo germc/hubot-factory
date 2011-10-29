@@ -1,1 +1,98 @@
-<a href="{{hubot_url}}">Hubot</a> Factory!
+<div class="main grid_8 push_2">
+
+  <h1>Build and Deploy a Hubot</h1>
+
+  <p>
+    Ut sit amet tellus nisl, at vehicula nunc. Cum sociis natoque penatibus et
+    magnis dis parturient montes, nascetur ridiculus mus. Vivamus non mauris
+    eros, non iaculis quam. Nunc ac sem eget nunc ornare ultricies adipiscing
+    nec ante.
+  </p>
+
+  <p>
+    Praesent ut magna massa. Vivamus tristique eleifend mauris, sit amet
+    lobortis enim varius sit amet. Nullam ac libero arcu, in congue ligula.
+    Vivamus dignissim, erat vel rhoncus commodo, nulla purus sodales dolor, in
+    sollicitudin nulla sapien ac neque. Integer a semper sapien. Nullam eu
+    dolor sed mauris placerat tristique faucibus id enim.
+  </p>
+
+  <form action="/build" method="post">
+
+    <h2>About Your Hubot</h2>
+
+    <p>
+      You will need to pick a name for your new Hubot. Your Hubot will respond
+      to this name. You will be able to change this even after your Hubot is
+      deployed, so don't worry if you change your mind!.
+    </p>
+
+    <p>
+      <label for="name">Robot Name:</label>
+      <input type="text" name="name" placeholder="Hubot" />
+    </p>
+
+    <p>
+      You will need to pick an adapter that your new Hubot will use. This is
+      where your Hubot will listen and respond to. Again you will be able to
+      change this if you change your mind.
+    </p>
+
+    <p>
+      <label for="adapter">
+        Robot Adapter:
+        <br />
+        <input checked type="radio" name="adapter" value="campfire" /> Campfire<br />
+        <input type="radio" name="adapter" value="email" /> Email<br />
+        <input type="radio" name="adapter" value="groupme" /> GroupMe<br />
+        <input type="radio" name="adapter" value="hipchat" /> HipChat<br />
+        <input type="radio" name="adapter" value="irc" /> IRC<br />
+        <input type="radio" name="adapter" value="twilio" /> Twilio<br />
+        <input type="radio" name="adapter" value="xmpp" /> XMPP<br />
+      </label>
+    </p>
+
+    <h2>Pick Your Hubot Scripts</h2>
+
+    <p>
+      You will need to pick and mix some scripts that your Hubot will use to
+      decide what to listen and respond with. You will be able to change these
+      in the <strong>hubot-scripts.json</strong> at any point.
+    </p>
+
+    {{#hubot_scripts}}
+    <p>
+      <label>
+        <input checked name="scripts[]" type="checkbox" value="{{to_s}}">
+        {{to_s}}.coffee
+      </label>
+    </p>
+    {{/hubot_scripts}}
+
+    <h2>Heroku Details</h2>
+
+    <p>
+      We will create the Heroku application, push your Hubot robot to Heroku.
+      Then we will transfer the application to your account that belongs to the
+      email below.
+    </p>
+
+    <p>
+      <label for="email">Your Email:</label>
+      <input type="text" name="email" placeholder="hubot@example.com" />
+    </p>
+
+    <h2>Deploy Your Hubot!</h2>
+
+    <p>
+      We will create and deploy your Hubot to Heroku and notify you at the
+      email you provided above once it is complete. You will still have to
+      configure some variables.
+    </p>
+
+    <p>
+      <input type="submit" name="submit" value="Build & Deploy" />
+    </p>
+  </form>
+
+</div>
