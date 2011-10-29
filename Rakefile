@@ -1,4 +1,8 @@
-require "bundler/gem_tasks"
+$: << File.expand_path("../lib", __FILE__) << File.expand_path("../", __FILE__)
+
+require "bundler/setup"
+require "resque/tasks"
+require "hubot_factory"
 
 task :default => :start
 

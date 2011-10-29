@@ -1,0 +1,7 @@
+---
+email_host: "smtp.gmail.com"
+email_port: "587"
+email_user: "user@gmail.com"
+email_pass: "userpassword"
+
+hubot_bin: "/path/to/hubot/binary"

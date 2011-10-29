@@ -23,7 +23,7 @@ module HubotFactory
       @adapter = params[:adapter]
       @scripts = params[:scripts]
 
-      # Resque.enqueue(BuildHubot, @email, @name, @adapter, @scripts)
+      Resque.enqueue(BuildHubot, @email, @name, @adapter, @scripts)
 
       mustache :build
     end

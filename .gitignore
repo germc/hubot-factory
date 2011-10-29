@@ -1,4 +1,5 @@
 *.gem
 .bundle
+config/config.yml
 pkg/*
 vendor/*

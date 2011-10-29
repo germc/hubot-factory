@@ -1,6 +1,7 @@
 $: << File.expand_path("../lib", __FILE__) << File.expand_path("../", __FILE__)
 
 require "bundler/setup"
+require "resque/server"
 require "hubot_factory"
 
 map "/" do
