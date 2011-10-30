@@ -45,7 +45,7 @@ Your Hubot, #{name} has been built and deployed to Heroku for you.
         :user_name            => Settings.secrets["email_user"],
         :password             => Settings.secrets["email_pass"],
         :authentication       => :plain,
-        :domain               => "localhost.localdomain"
+        :domain               => Settings.secrets["email_domain"]
       }
 
       Pony.mail(:to          => email,

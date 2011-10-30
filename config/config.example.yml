@@ -5,6 +5,7 @@ email_host: "smtp.gmail.com"
 email_port: "587"
 email_user: "user@gmail.com"
 email_pass: "userpassword"
+email_domain: "yourdomain.com
 
 hubot_bin: "/path/to/hubot/binary"
 
