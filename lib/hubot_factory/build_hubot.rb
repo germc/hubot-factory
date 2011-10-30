@@ -18,7 +18,7 @@ module HubotFactory
       system "sed", "-i", "s/-n Hubot/-n #{name}/", "#{dir}/Procfile"
       system "sed", "-i", "s/-a campfire/-a #{adapter}/", "#{dir}/Procfile"
       system "cd #{dir} && git init && git add . && git commit -m 'Initial commit'"
-      system "cd #{dir} && heroku create -s cedar #{name}-#{adapter}-hubot"
+      system "cd #{dir} && heroku create -s cedar"
       system "cd #{dir} && heroku config:add #{config.join(" ")}"
       system "cd #{dir} && git push heroku master"
       system "cd #{dir} && heroku ps:scale app=1"
