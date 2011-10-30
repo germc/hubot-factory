@@ -6,8 +6,7 @@ num_workers.times do |num|
     w.name     = "resque-#{num}"
     w.group    = 'resque'
     w.interval = 30.seconds
-    w.env      = { "QUEUE" => "build_hubot" }
-    w.start    = "bundle exec rake resque:work"
+    w.start    = "QUEUE=build_hubot bundle exec rake resque:work"
 
     # restart if memory gets too high
     w.transition(:up, :restart) do |on|
