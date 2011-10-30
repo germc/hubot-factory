@@ -88,34 +88,4 @@
     </p>
   </form>
 
-  <script>
-    $(function() {
-      $("#build-hubot").validate({
-        rules: {
-          name: "required",
-          email: {
-            required: true,
-            email: true
-          },
-        },
-        messages: {
-          name: "Oops! Your Hubot needs a name",
-          email: {
-            required: "Oops! We need your email to transfer the Heroku app to you"
-          },
-        }
-      });
-
-      $("input[name='adapter']").change(function() {
-        name = $(this).val()
-        $(".adapter-vars").slideUp(function() {
-          $(this).hide();
-        });
-        $("#adapter-" + name).slideDown(function() {
-          $(this).show();
-        });
-      });
-    });
-  </script>
-
 </div>
