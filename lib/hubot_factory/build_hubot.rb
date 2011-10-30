@@ -19,7 +19,7 @@ module HubotFactory
       system "sed", "-i", "s/-n Hubot/-n #{name}/", "#{dir}/Procfile"
       system "sed", "-i", "s/-a campfire/-a #{adapter}/", "#{dir}/Procfile"
       system "cd #{dir} && git init && git add . && git commit -m 'Initial commit'"
-      system "cd #{dir} && heroku create -s cedar"
+      system "cd #{dir} && heroku create -s cedar #{name}-#{adapter}-hubot"
       system "cd #{dir} && heroku config:add #{config.join(" ")}"
       system "cd #{dir} && git push heroku master"
       system "cd #{dir} && heroku ps:scale app=1"
@@ -38,24 +38,22 @@ Your Hubot, #{name} has been built and deployed to Heroku for you.
  -- Hubot Factory Worker
 """
 
-      smtp_settings = {
-        :address              => Settings.secrets["email_host"],
-        :port                 => Settings.secrets["email_port"],
-        :enable_starttls_auto => true,
-        :user_name            => Settings.secrets["email_user"],
-        :password             => Settings.secrets["email_pass"],
-        :authentication       => :plain,
-        :domain               => Settings.secrets["email_domain"]
-      }
-
-      Pony.mail(:to          => email,
-                :subject     => "Your Hubot is Ready!",
-                :body        => body,
-                :via_options => smtp_settings)
+     Pony.mail(:to       => email,
+                :from    => "hubot@tombell.org.uk",
+                :subject => "Your Hubot is Ready!",
+                :body    => body)
     end
 
     def self.valid_adapters
-      [ "campfire", "email", "groupme", "hipchat", "irc", "twilio", "xmpp" ]
+      [
+        "campfire",
+        "email",
+        "groupme",
+        "hipchat",
+        "irc",
+        "twilio",
+        "xmpp"
+      ]
     end
   end
 end
