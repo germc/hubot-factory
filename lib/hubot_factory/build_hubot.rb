@@ -26,19 +26,19 @@ module HubotFactory
       system "cd #{dir} && heroku sharing:transfer #{email}"
       system "cd #{dir} && heroku sharing:remove #{Settings.secrets["heroku_user"]}"
 
-      body =
-"""
-Hello,
+      file_path = File.expand_path("../../../templates/email.mustache",
+                                   __FILE__)
 
-Your Hubot, #{name} has been built and deployed to Heroku for you.
+      template = IO.read(file_path)
+      body     = Mustache.render(template, :name         => name,
+                                           :adapter      => adapter,
+                                           :adapter_vars => adapter_vars)
 
- -- Hubot Factory Worker
-"""
-
-     Pony.mail(:to      => email,
-              :from    => "hubot@tombell.org.uk",
-              :subject => "Your Hubot is Ready!",
-              :body    => body)
+      Pony.mail(:to      => email,
+                :from    => "hubot@tombell.org.uk",
+                :subject => "Your Hubot is Ready",
+                :body    => body,
+                :headers => { "Content-Type" => "text/html" })
     end
 
     def self.valid_adapters

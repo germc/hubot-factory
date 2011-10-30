@@ -1,7 +1,8 @@
 require "heroku"
-require "sinatra/base"
+require "mustache"
 require "mustache/sinatra"
 require "pony"
+require "sinatra/base"
 require "resque"
 
 require "hubot_factory/adapters"
