@@ -8,11 +8,17 @@ module HubotFactory
     #
     # Returns nothing.
     def self.perform(email, name, adapter, adapter_vars)
+      process = if adapter.downcase == "twilio"
+        "web"
+      else
+        "app"
+      end
+
       create_hubot_dir(name)
 
       create_hubot(name)
 
-      setup_procfile(name, adapter)
+      setup_procfile(name, adapter, process)
 
       init_git_repository
 
@@ -22,7 +28,8 @@ module HubotFactory
 
       push_heroku_app
 
-      scale_heroku_app("app")
+
+      scale_heroku_app(process)
 
       transfer_heroku_app(email)
 
@@ -54,9 +61,10 @@ module HubotFactory
     # adapter - A String of the adapter.
     #
     # Returns nothing.
-    def self.setup_procfile(name, adapter)
+    def self.setup_procfile(name, adapter, process)
       system "sed", "-i", "s/-n Hubot/-n #{name}/", "Procfile"
       system "sed", "-i", "s/-a campfire/-a #{adapter}/", "Procfile"
+      system "sed", "-i", "s/app:/#{process}:/", "Procfile"
     end
 
     # Initialise and commit the robot into a git repository.
