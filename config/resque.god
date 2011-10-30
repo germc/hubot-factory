@@ -1,12 +1,13 @@
-num_workers = 2 
+num_workers = 2
+app_root    = "/data/hubot-factory"
 
 num_workers.times do |num|
   God.watch do |w|
-    w.dir      = "/data/hubot-factory"
     w.name     = "resque-#{num}"
     w.group    = 'resque'
     w.interval = 30.seconds
-    w.start    = "QUEUE=build_hubot bundle exec rake resque:work"
+    w.env     = { "QUEUE" => "build_hubot" }
+    w.start    = "cd #{app_root} && bundle exec rake resque:work"
 
     # restart if memory gets too high
     w.transition(:up, :restart) do |on|
