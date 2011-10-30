@@ -13,7 +13,8 @@ Resque.redis = Redis.new(:host     => HubotFactory::Settings.secrets["redis_host
                          :password => HubotFactory::Settings.secrets["redis_pass"])
 
 Pony.options = {
-  :via => :smtp,
+  :from        => Settings.secrets["email_from"],
+  :via         => :smtp,
   :via_options => {
     :address              => HubotFactory::Settings.secrets["email_host"],
     :port                 => HubotFactory::Settings.secrets["email_port"],
