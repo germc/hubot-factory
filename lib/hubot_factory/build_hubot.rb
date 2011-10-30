@@ -1,4 +1,3 @@
-require "fileutils"
 require "tmpdir"
 
 module HubotFactory
@@ -27,8 +26,6 @@ module HubotFactory
       system "cd #{dir} && heroku sharing:transfer #{email}"
       system "cd #{dir} && heroku sharing:remove #{Settings.secrets["heroku_user"]}"
 
-      FileUtils.rm_fr dir
-
       body =
 """
 Hello,
@@ -38,10 +35,10 @@ Your Hubot, #{name} has been built and deployed to Heroku for you.
  -- Hubot Factory Worker
 """
 
-     Pony.mail(:to       => email,
-                :from    => "hubot@tombell.org.uk",
-                :subject => "Your Hubot is Ready!",
-                :body    => body)
+     Pony.mail(:to      => email,
+              :from    => "hubot@tombell.org.uk",
+              :subject => "Your Hubot is Ready!",
+              :body    => body)
     end
 
     def self.valid_adapters

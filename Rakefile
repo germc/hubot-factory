@@ -15,12 +15,3 @@ desc "Run Shotgun like a deputy"
 task :shotgun do
   system "bundle exec shotgun --host 0.0.0.0 --port 3000"
 end
-
-desc "Send test email"
-task :testemail do
-  body = "Hello world! #{Time.new}"
-  Pony.mail(:to      => "tomb@tombell.org.uk",
-            :from    => "hubot@tombell.org.uk",
-            :subject => "Your Hubot is Ready!",
-            :body    => body)
-end
