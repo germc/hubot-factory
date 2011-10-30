@@ -34,9 +34,6 @@ module HubotFactory
 Hello,
 
 Your Hubot, #{name} has been built and deployed to Heroku for you.
-You will still need to configure some Heroku config variables to
-get it running. We hope to automate this part in the future for
-you.
 
  -- Hubot Factory Worker
 """

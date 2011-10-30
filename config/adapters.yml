@@ -8,7 +8,7 @@
       desc: "Campfire API token"
     -
       name: "HUBOT_CAMPFIRE_ROOMS"
-      desc: "Campfire room IDs, separated by a comma"
+      desc: "Campfire room IDs, separated by a commas"
     -
       name: "HUBOT_CAMPFIRE_ACCOUNT"
       desc: "Campfire account subdomain"
@@ -19,22 +19,22 @@
   vars:
     -
       name: "HUBOT_EMAIL_USERNAME"
-      desc: ""
+      desc: "Email account username"
     -
       name: "HUBOT_EMAIL_PASSWORD"
-      desc: ""
+      desc: "Email account password"
     -
       name: "HUBOT_IMAP_HOST"
-      desc: ""
+      desc: "IMAP server address"
     -
       name: "HUBOT_IMAP_PORT"
-      desc: ""
+      desc: "IMAP server port"
     -
       name: "HUBOT_IMAP_SECURE"
-      desc: ""
+      desc: "IMAP sever secure connection, leave blank if not required"
     -
       name: "HUBOT_MAILBOX"
-      desc: ""
+      desc: "IMAP mailbox to check"
 
 -
   name: "GroupMe"
@@ -42,10 +42,10 @@
   vars:
     -
       name: "HUBOT_GROUPME_ROOM"
-      desc: ""
+      desc: "GroupMe room ID"
     -
       name: "HUBOT_GROUPME_TOKEN"
-      desc: ""
+      desc: "GroupMe API token"
 
 -
   name: "HipChat"
@@ -53,19 +53,19 @@
   vars:
     -
       name: "HUBOT_HIPCHAT_TOKEN"
-      desc: ""
+      desc: "HipChat API token"
     -
       name: "HUBOT_HIPCHAT_JID"
-      desc: ""
+      desc: "HipChat JID"
     -
       name: "HUBOT_HIPCHAT_NAME"
-      desc: ""
+      desc: "HipChat name for your robot, leave blank to use the Robot name"
     -
       name: "HUBOT_HIPCHAT_PASSWORD"
-      desc: ""
+      desc: "HipChat password"
     -
       name: "HUBOT_HIPCHAT_ROOMS"
-      desc: ""
+      desc: "HipChat rooms to join, separated by commas, eave blank to join all"
 
 -
   name: "IRC"
@@ -73,22 +73,22 @@
   vars:
     -
       name: "HUBOT_IRC_NICK"
-      desc: ""
-    -
-      name: "HUBOT_IRC_PORT"
-      desc: ""
-    -
-      name: "HUBOT_IRC_ROOMS"
-      desc: ""
+      desc: "IRC nick for your robot, leave blank to use the Robot name"
     -
       name: "HUBOT_IRC_SERVER"
-      desc: ""
+      desc: "IRC server address"
+    -
+      name: "HUBOT_IRC_PORT"
+      desc: "IRC server port, leave blank to use the default (6667)"
+    -
+      name: "HUBOT_IRC_ROOMS"
+      desc: "IRC rooms, separated by commas"
     -
       name: "HUBOT_IRC_PASSWORD"
-      desc: ""
+      desc: "IRC server password, leave blank if not required"
     -
       name: "HUBOT_IRC_NICKSERV_PASSWORD"
-      desc: ""
+      desc: "IRC nickserv password, leave blank if not required"
 
 -
   name: "Twilio"
@@ -96,13 +96,13 @@
   vars:
     -
       name: "HUBOT_SMS_SID"
-      desc: ""
+      desc: "Twilio SID"
     - 
       name: "HUBOT_SMS_TOKEN"
-      desc: ""
+      desc: "Twilio API token"
     -
       name: "HUBOT_SMS_FROM"
-      desc: ""
+      desc: "Twilio number to send the reply from"
 
 -
   name: "XMPP"
@@ -110,11 +110,11 @@
   vars:
     -
       name: "HUBOT_XMPP_USERNAME"
-      desc: ""
+      desc: "XMPP account username"
     -
       name: "HUBOT_XMPP_PASSWORD"
-      desc: ""
+      desc: "XMPP account password"
     -
       name: "HUBOT_XMPP_ROOMS"
-      desc: ""
+      desc: "XMPP rooms, separated by commas"
 
