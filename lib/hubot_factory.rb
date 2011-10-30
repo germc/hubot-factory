@@ -5,6 +5,7 @@ require "pony"
 require "resque"
 
 require "hubot_factory/adapters"
+require "hubot_factory/settings"
 
 Resque.redis = Redis.new(:host     => HubotFactory::Settings.secrets["redis_host"],
                          :port     => HubotFactory::Settings.secrets["redis_port"],
@@ -24,7 +25,6 @@ Pony.options = {
 }
 
 require "hubot_factory/build_hubot"
-require "hubot_factory/settings"
 require "hubot_factory/app"
 require "hubot_factory/version"
 
