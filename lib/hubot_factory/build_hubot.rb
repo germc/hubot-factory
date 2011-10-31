@@ -28,7 +28,6 @@ module HubotFactory
 
       push_heroku_app
 
-
       scale_heroku_app(process)
 
       transfer_heroku_app(email)
