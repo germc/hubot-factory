@@ -1,15 +1,19 @@
 module HubotFactory
   module Git
-    def init
+    def self.init
+      system "git", "init"
     end
 
-    def add
+    def self.add
+      system "git", "add", "."
     end
 
-    def commit
+    def self.commit
+      system "git", "commit", "-m", '"Initial commit"'
     end
 
-    def push
+    def self.push
+      system "git", "push", "heroku", "master"
     end
   end
 end

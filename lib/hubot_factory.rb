@@ -26,6 +26,10 @@ Pony.options = {
   }
 }
 
+require "hubot_factory/email"
+require "hubot_factory/heroku"
+require "hubot_factory/hubot"
+require "hubot_factory/git"
 require "hubot_factory/build_hubot"
 require "hubot_factory/app"
 require "hubot_factory/version"
