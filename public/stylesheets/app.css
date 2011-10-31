@@ -1,12 +1,11 @@
 body {
-  background: #c8d0db;
-  color: #626262;
-  font-family: "Helvetica Neue", Helvetica, "Arial Geneva", sans-serif;
+  background: #ebf5fe;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Arial", sans-serif;
   font-size: 13px;
 }
 
 p {
-  color: #858e97;
   font-weight: normal;
   line-height: 20px;
   margin: 0 0 20px 0;
@@ -17,22 +16,23 @@ p:last-child {
 }
 
 h1, h2 {
-  color: #5b6f8d;
+  color: #5F8FAF;
   -webkit-font-smoothing: antialiased;
   padding: 0 0 5px 0;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
 }
 
 h1 {
   font-size: 23px;
-  font-weight: normal;
+  font-weight: bold;
   margin: 0 0 3px 0;
 }
 
 h2 {
   border-bottom: 1px solid #eee;
   font-size: 18px;
-  font-weight: normal;
+  font-weight: bold;
   margin: 0 0 10px 0;
 }
 
@@ -49,6 +49,7 @@ form p:last-child {
 }
 
 label {
+  font-size: 14px;
   font-weight: bold;
   margin: 0 12px 0 0;
 }
@@ -62,18 +63,12 @@ label.error {
   font-weight: bold;
 }
 
-label + input[type='text'],
-label + input[type='password'],
-label + textarea,
-label + select {
+label + input[type='text'] {
   display: block;
   margin: 4px 0 0 0;
 }
 
-input[type='text'],
-input[type='password'],
-textarea,
-select {
+input[type='text'] {
   border: 1px solid #ccc;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -94,18 +89,14 @@ select {
   width: 100%;
 }
 
-input[type='text']:focus,
-input[type='password']:focus,
-textarea:focus {
+input[type='text']:focus {
   border: 1px solid #80bfff;
   -moz-box-shadow: 0 0 3px #80bfff, 0 1px 2px rgba(0, 0, 0, 0.15) inset;
   -webkit-box-shadow: 0 0 3px #80bfff, 0 1px 2px rgba(0, 0, 0, 0.15) inset;
   box-shadow: 0 0 3px #80bfff, 0 1px 2px rgba(0, 0, 0, 0.15) inset;
 }
 
-input[type='text'].error,
-input[type='password'].error,
-textarea.error {
+input[type='text'].error {
   border: 1px solid #bd5e55;
   -moz-box-shadow: 0 0 3px #bd5e55, 0 1px 2px rgba(0, 0, 0, 0.15) inset;
   -webkit-box-shadow: 0 0 3px #bd5e55, 0 1px 2px rgba(0, 0, 0, 0.15) inset;

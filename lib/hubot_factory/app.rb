@@ -30,6 +30,7 @@ module HubotFactory
       end
 
       Resque.enqueue(BuildHubot, @email, @name, @adapter, @adapter_vars)
+      @title = "You're Hubot is being Built - Hubot Factory"
       mustache :build
     end
   end

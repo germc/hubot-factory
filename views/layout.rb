@@ -2,7 +2,7 @@ module HubotFactory
   module Views
     class Layout < Mustache
       def title
-        @title || "Hubot Factory"
+        @title || "Build and Deploy Your Own Hubot - Hubot Factory"
       end
     end
   end

@@ -1,5 +1,5 @@
 <div class="main grid_8 push_2">
-
+ 
   <h1>Build and Deploy a Hubot</h1>
 
   <p>
@@ -46,7 +46,7 @@
     </p>
 
     <p>
-      <strong>Hubot Adapter:</strong>
+      <label>Hubot Adapter</label>
     </p>
 
     {{#hubot_adapters}}
@@ -64,8 +64,8 @@
 
         {{#vars}}
         <p>
-          <label>{{desc}} <span>{{name}}</span></label>
-          <input name="adapter-{{name}}" type="text" />
+          <label>{{desc}}</label>
+          <input name="adapter-{{name}}" placeholder="{{name}}" type="text" />
         </p>
         {{/vars}}
 
