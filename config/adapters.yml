@@ -37,6 +37,17 @@
       desc: "IMAP mailbox to check"
 
 -
+  name: "Flowdock"
+  desc: "Flowdock adapter"
+  vars:
+    -
+      name: "HUBOT_FLOWDOCK_LOGIN_EMAIL"
+      desc: "Flowdock login email"
+    -
+      name: "HUBOT_FLOWDOCK_LOGIN_PASSWORD"
+      desc: "Flowdock login password"
+
+-
   name: "GroupMe"
   desc: "GroupMe adapter"
   vars:
@@ -89,6 +100,34 @@
     -
       name: "HUBOT_IRC_NICKSERV_PASSWORD"
       desc: "IRC nickserv password, leave blank if not required"
+
+-
+  name: "Talker"
+  desc: "Talker adapter"
+  vars:
+    -
+      name: "HUBOT_TALKER_TOKEN"
+      desc: "Talker API token"
+    -
+      name: "HUBOT_TALKER_ROOMS"
+      desc: "Talker rooms to join, separated to commas"
+
+-
+  name: "Twitter"
+  desc: "Twitter adapter"
+  vars:
+    -
+      name: "HUBOT_TWITTER_KEY"
+      desc: "Twitter OAuth key"
+    -
+      name: "HUBOT_TWITTER_SECRET"
+      desc: "Twitter OAuth secret"
+    -
+      name: "HUBOT_TWITTER_TOKEN"
+      desc: "Twitter OAuth token"
+    -
+      name: "HUBOT_TWITTER_TOKEN_SECRET"
+      desc: "Twitter OAuth token secret"
 
 -
   name: "Twilio"
