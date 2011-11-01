@@ -37,6 +37,7 @@ module HubotFactory
     # Returns nothing.
     def self.send_email(email, body)
       Pony.mail(:to      => email,
+                :from    => Settings.secrets["email_from"],
                 :subject => "Your Hubot is ready",
                 :body    => body,
                 :headers => { "Content-Type" => "text/html" });
