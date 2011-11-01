@@ -1,7 +1,5 @@
 source "http://rubygems.org"
 
-gem "god"
-gem "heroku"
 gem "mustache"
 gem "pony"
 gem "resque"
