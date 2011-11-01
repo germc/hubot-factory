@@ -13,6 +13,16 @@ module HubotFactory
       :templates => "#{dir}/templates"
     }
 
+    not_found do
+      @title = "Uh oh! Not Found - Hubot Factory"
+      mustache :not_found
+    end
+
+    error do
+      @title = "Oops! Error - Hubot Factory"
+      mustache :error
+    end
+
     get "/" do
       mustache :index
     end
