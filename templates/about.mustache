@@ -1,0 +1,60 @@
+<h1>About Hubot Factory</h1>
+
+<p>
+  Hubot Factory is a place where many mini-Hubots work in sync to create
+  the ultimate Hubot army.
+</p>
+
+
+<h2>What is Hubot Factory?</h2>
+
+<p>
+  Okay! We were just kidding. Hubot Factory is a way to allow people to
+  easily and quickly deploy new instances of Hubot to Heroku.
+</p>
+
+<p>
+  You tell us your Heroku account email, name you want to give your Hubot
+  and the adapter you want to use. The rest is magic and the mini-Hubots
+  get to work assembling your Hubot.
+</p>
+
+<h2>Why Did You Make Hubot Factory?</h2>
+
+<p>
+  We were bored.
+</p>
+
+<p>
+  No really, we were! It was also a quick weekend project hacked together.
+  Many people were having issues getting Hubot up and running on Heroku so we
+  wanted to make the process as smooth as possible.
+</p>
+
+<h2>How Does Hubot Factory Work?</h2>
+
+<p>
+  Mini-Hubots.
+</p>
+
+<p>
+  We use <a href="http://sinatrarb.com">Sinatra</a> for the frontend. When
+  you ask us to build a Hubot and deploy it for you we add the build to a
+  Resque queue behind the scenes. Mini-Hubots (Okay, Resque workers) pick up
+  the work of the queue and get to building the Hubot and deploying it.
+  Mainly through some funky calls to <code>system()</code>.
+</p>
+
+<h2>Credits</h2>
+
+<p>
+  Unfortunately we're not affiliated with GitHub, but we greatly appreciate
+  the work they do. Many thanks to them for open sourcing
+  <a href="http://hubot.github.com">Hubot</a> to the world.
+</p>
+
+<p>
+  Special thanks to <a href="http://twitter.com/atmos">@atmos</a> and
+  <a href="http://twitter.com/technoweenie">@technoweenie</a> for letting us
+  bounce ideas off them and giving some great feedback.
+</p>

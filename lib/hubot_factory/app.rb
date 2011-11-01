@@ -33,5 +33,10 @@ module HubotFactory
       @title = "You're Hubot is being Built - Hubot Factory"
       mustache :build
     end
+
+    get "/about" do
+      @title = "About - Hubot Factory"
+      mustache :about
+    end
   end
 end
