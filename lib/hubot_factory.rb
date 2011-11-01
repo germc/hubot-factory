@@ -1,4 +1,3 @@
-require "heroku"
 require "mustache"
 require "mustache/sinatra"
 require "pony"

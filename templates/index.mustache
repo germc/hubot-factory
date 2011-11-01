@@ -3,36 +3,45 @@
   <h1>Build and Deploy a Hubot</h1>
 
   <p>
-    Want to run your own Hubot? Want to do it as fast as possible? Just fill
-    out the few fields here and we will do all of the heavy lifting for you.
+    Want to run your own <a href="http://hubot.github.com">Hubot</a>? Want to
+    do it as fast as possible? Just fill out the few fields below and we will
+    do all of the heavy lifting for you.
   </p>
 
   <p>
     When your Hubot has been built and deployed, which includes transferring it
-    to your Heroku account. We will send you a notification to the email of the
-    Heroku account. This email may also include final instructions for you to
-    get your Hubot up and running.
+    to your Heroku account. We will send you a notification to the email
+    specified below.
   </p>
+
+  <div class="beta">
+    <p>
+      <strong>Thanks for trying the public beta!</strong> Hubot Factory is still
+      under active development and tweaking. If you come across issues when
+      deploying your Hubot please email
+      <a href="mailto:hello+hubot@tombell.org.uk">hello+hubot@tombell.org.uk</a>
+    </p>
+  </div>
 
   <form action="/build" id="build-hubot" method="post">
 
     <h2>Heroku Details</h2>
 
     <p>
-      Your Hubot will need to be transferred to your Heroku account. So please
-      use the email associated with your Heroku account.
+      Your Hubot will need deploying to your Heroku account. Therefore we'll
+      need the email associated with your Heroku account.
     </p>
 
     <p>
       <label for="email">Your Email:</label>
-      <input type="text"  placeholder="hubot@example.com" name="email" />
+      <input type="text"placeholder="hubot@example.com" name="email" />
     </p>
 
     <h2>About Your Hubot</h2>
 
     <p>
-      Your Hubot will need it's own name. This is what it will be programmed
-      to listen and respond to.
+      Your Hubot will need a name. This is what it will be programmed to listen
+      for and respond to.
     </p>
 
     <p>
@@ -41,13 +50,21 @@
     </p>
 
     <p>
-      Your Hubot will need to live somewhere. Pick an adapter for your Hubot
-      to use.
+      Your Hubot needs to be plugged into an adapter. This is the service it
+      will listen and respond on.
     </p>
 
     <p>
       <label>Hubot Adapter</label>
     </p>
+
+    <div class="beta">
+      <p>
+        If you don't see the adapter you would like to use on this list, please
+        use the email above to say it's missing and we'll add it as soon as
+        possible.
+      </p>
+    </div>
 
     {{#hubot_adapters}}
 
@@ -78,9 +95,9 @@
     <h2>Deploy Your Hubot!</h2>
 
     <p>
-      We will create and deploy your Hubot to Heroku and notify you at the
-      email you provided above once it is complete. You will still have to
-      configure some variables.
+      That's it! Once you click <strong>Build &amp; Deploy</strong> we'll queue
+      up your Hubot on the conveyor belt. As soon as it's built and deployed
+      we will email to you let you know.
     </p>
 
     <p>
