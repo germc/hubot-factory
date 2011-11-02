@@ -36,6 +36,14 @@ module HubotFactory
       Heroku.scale(process)
       Heroku.transfer(email, Settings.secrets["heroku_user"])
 
+      adapter_vars.each do |v|
+        if v["var"].downcase.include?("password") ||
+          v["var"].downcase.include?("token")
+
+          v["val"] = "*********"
+        end
+      end
+
       Email.send_notification(email, name, adapter, adapter_vars)
     end
   end
