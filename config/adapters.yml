@@ -48,6 +48,17 @@
       desc: "Flowdock login password"
 
 -
+  name: "GTalk"
+  desc: "Google Talk adapter"
+  vars:
+    -
+      name: "HUBOT_GTALK_USERNAME"
+      desc: "Google Talk username"
+    -
+      name: "HUBOT_GTALK_PASSWORD"
+      desc: "Google Talk password"
+
+-
   name: "GroupMe"
   desc: "GroupMe adapter"
   vars:
