@@ -57,6 +57,12 @@
     -
       name: "HUBOT_GTALK_PASSWORD"
       desc: "Google Talk password"
+    -
+      name: "HUBOT_GTALK_WHITELIST_DOMAINS"
+      desc: "Hubot will accept contact requests from these domains"
+    -
+      name: "HUBOT_GTALK_WHITELIST_USERS"
+      desc: "Hubot will accept contact requests from these users"
 
 -
   name: "GroupMe"
