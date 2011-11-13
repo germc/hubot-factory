@@ -1,6 +1,12 @@
 require "tmpdir"
 
 module HubotFactory
+  class HttpPost
+    include HTTParty
+    default_params :output => "json"
+    format :json
+  end
+
   class BuildHubot
     @queue = :build_hubot
 
@@ -48,9 +54,8 @@ module HubotFactory
       Email.send_notification(email, name, adapter, adapter_vars)
 
       if url
-        HTTParty.post(url, :body => { :email => email,
-                                      :name => name,
-                                      :adapter => adapter })
+        json = { :email => email, :name => name, :adapter => adapter }.to_json
+        HttpPost.post(url, :body => json)
       end
     end
   end
