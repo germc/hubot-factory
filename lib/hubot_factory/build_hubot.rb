@@ -8,11 +8,12 @@ module HubotFactory
     #
     # email        - A String of the email of the target Heroku account.
     # name         - A String of the name of the robot.
+    # url          - A String of a URL to send a notification to.
     # adapter      - A String of the adapter for the robot.
     # adapter_vars - An Array of Hashes of environment variables to set.
     #
     # Returns nothing.
-    def self.perform(email, name, adapter, adapter_vars)
+    def self.perform(email, name, url, adapter, adapter_vars)
       process = if adapter.downcase == "twilio"
         "web"
       else
@@ -45,6 +46,12 @@ module HubotFactory
       end
 
       Email.send_notification(email, name, adapter, adapter_vars)
+
+      if url
+        HTTParty.post(url, :body => { :email => email,
+                                      :name => name,
+                                      :adapter => adapter })
+      end
     end
   end
 end

@@ -1,6 +1,7 @@
 source "http://rubygems.org"
 
 gem "heroku"
+gem "httparty"
 gem "mustache"
 gem "pony"
 gem "resque"

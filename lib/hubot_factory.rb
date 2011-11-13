@@ -1,3 +1,4 @@
+require "httparty"
 require "mustache"
 require "mustache/sinatra"
 require "pony"
@@ -30,6 +31,7 @@ require "hubot_factory/hubot"
 require "hubot_factory/git"
 require "hubot_factory/build_hubot"
 require "hubot_factory/app"
+require "hubot_factory/api_app"
 require "hubot_factory/version"
 
 require "views/layout"

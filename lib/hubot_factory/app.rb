@@ -39,7 +39,7 @@ module HubotFactory
         item[:val] && item[:val] != ""
       end
 
-      Resque.enqueue(BuildHubot, @email, @name, @adapter, @adapter_vars)
+      Resque.enqueue(BuildHubot, @email, @name, nil, @adapter, @adapter_vars)
       @title = "You're Hubot is being Built - Hubot Factory"
       mustache :build
     end
@@ -47,6 +47,16 @@ module HubotFactory
     get "/about" do
       @title = "About - Hubot Factory"
       mustache :about
+    end
+
+
+    post "/build_notice" do
+      email = params[:email]
+      name = params[:name]
+      adapter = params[:adapter]
+
+      puts "built #{name} on #{adapter} transferred to #{email}"
+      "gj!"
     end
   end
 end

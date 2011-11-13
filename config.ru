@@ -13,6 +13,10 @@ map "/" do
   run HubotFactory::App
 end
 
+map "/api" do
+  run HubotFactory::ApiApp
+end
+
 map "/resque" do
   run Resque::Server
 end
