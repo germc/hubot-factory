@@ -27,6 +27,10 @@ module HubotFactory
       mustache :index
     end
 
+    get "/api_docs" do
+      mustache :api_docs
+    end
+
     post "/build" do
       @email        = params[:email]
       @name         = params[:name]
@@ -47,16 +51,6 @@ module HubotFactory
     get "/about" do
       @title = "About - Hubot Factory"
       mustache :about
-    end
-
-
-    post "/build_notice" do
-      email = params[:email]
-      name = params[:name]
-      adapter = params[:adapter]
-
-      puts "built #{name} on #{adapter} transferred to #{email}"
-      "gj!"
     end
   end
 end

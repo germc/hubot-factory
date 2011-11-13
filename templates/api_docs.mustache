@@ -1,0 +1,66 @@
+<h1>API Documentation</h1>
+
+<p>
+  So what happens when you automate automation? Let's find out. We present to
+  you an API for Hubot Factory. You no longer need to visit the web site to
+  build and deploy a Hubot!
+</p>
+
+<p>
+  The API is currently <strong>very</strong> simple to use. It's a single end
+  point you HTTP POST your configuration to and we'll return a response telling
+  you whether it was successful or not.
+</p>
+
+<h2>Creating a Hubot</h2>
+
+<pre><code>POST /api/build</code></pre>
+
+<h3>Request</h3>
+
+<ul>
+  <li><strong>email</strong> - Required</li>
+  <li><strong>name</strong> - Required</li>
+  <li><strong>adapter</strong> - Required</li>
+  <li><strong>url</strong> - Optional</li>
+  <li><strong>adapter_vars</strong> Optional</li>
+</ul>
+
+<pre><code>{
+  "email": "hubot@hubot-factory.com",
+  "name": "Hubot",
+  "adapter": "campfire",
+  "url": "http://hubot-factory.com/provision",
+  "adapter_vars": [
+    "HUBOT_CAMPFIRE_ROOMS": "123,321",
+    "HUBOT_CAMPFIRE_ACCOUNT": "hubot-factory",
+    "HUBOT_CAMPFIRE_TOKEN": "5d748c04a2bd7aadd7a15d062f5f29108773ad34"
+  ]
+}</code></pre>
+
+<h3>Response</h3>
+
+<p>
+  If an error occurs the <code>success</code> property will be false and a
+  <code>message</code> property will contain the error message.
+</p>
+
+<pre><code>{
+  "success": true
+}</code></pre>
+
+<h3>HTTP POST Notification</h3>
+
+<p>
+  If you supply a <code>url</code> parameter we will send a HTTP POST request
+  to this URL when your Hubot has been built and deployed.
+</p>
+
+<h3>Payload</h3>
+
+<pre><code>{
+  "email": "hubot@hubot-factory.com",
+  "name": "Hubot",
+  "adapter": "campfire"
+}</code></pre>
+
