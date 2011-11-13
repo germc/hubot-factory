@@ -5,38 +5,45 @@ module HubotFactory
     end
 
     post "/build" do
-      @email   = params[:email]
-      @name    = params[:name]
-      @adapter = params[:adapter]
-      @url     = params[:url]
-
-      @vars    = params.keys.grep(/^adapter-/i).map do |k|
-        { :var => k[8..-1], :val => params[k] }
+      unless request.media_type == "application/json"
+        return {
+          :success => false,
+          :message => "You must send parameters as JSON"
+        }.to_json
       end
 
-      @vars.select! do |item|
-        item[:val] && item[:val] != ""
+      request.body.rewind
+      data = JSON.parse request.body.read
+
+      email   = data["email"]
+      name    = data["name"]
+      adapter = data["adapter"]
+      url     = data["url"]
+      vars    = data["adapter_vars"]
+      
+      vars    = vars.keys.map do |k|
+        { :var => k, :val => vars[k] }
       end
 
       content_type "application/json"
 
-      if not @email
+      if not email
         {
           :success => false,
           :message => "You must specifiy an email"
         }.to_json
-      elsif not @name
+      elsif not name
         {
           :success => false,
           :message => "You must specifiy a name"
         }.to_json
-      elsif not @adapter
+      elsif not adapter
         {
           :success => false,
           :message => "You must specify an adapter"
         }.to_json
       else
-        if Resque.enqueue(BuildHubot, @email, @name, @url, @adapter, @vars)
+        if Resque.enqueue(BuildHubot, email, name, url, adapter, vars)
           { :success => true }.to_json
         else
           { :success => false }.to_json
